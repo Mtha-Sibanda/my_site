@@ -408,7 +408,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     position: absolute;
     width: 0;
     height: 100%;
-    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    background: linear-gradient(90.21deg, #1622a5 -5.91%, #b3b0c1 111.58%);
     top: 0;
     left: 0;
     z-index: -1;
@@ -424,6 +424,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 55px 0px 0px 55px;
 }
+.nav-link#projects-tabs-tab-first::before {
+  border-radius: 55px 0px 0px 55px; /* Match the border-radius */
+}
 .nav-link#projects-tabs-tab-second {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -431,6 +434,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .nav-link#projects-tabs-tab-third {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
+}
+.nav-link#projects-tabs-tab-third::before {
+  border-radius: 0px 55px 55px 0px; /* Match the border-radius */
 }
 .proj-imgbx {
   position: relative;
