@@ -15,7 +15,7 @@
   font-weight: 400;
 }
 
-/* Defaitl CSS */
+/* Default CSS */
 * {
   margin: 0;
   padding: 0;
@@ -82,6 +82,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 nav.navbar {
+  display: flex;
+  align-items: center !important;
+  justify-content: space-between !important;
   padding: 18px 0;
   position: fixed;
   width: 100%;
@@ -93,7 +96,24 @@ nav.navbar.scrolled {
   background-color: #121212;
 }
 nav.navbar .navbar-brand {
-  width: 9%;
+  /* width: 9%; */
+  margin-right: 6%; /* Adjust the value as needed */
+}
+/* Default padding */
+nav.navbar .navbar-brand {
+  margin-right: 3%; /* Using percentage for initial spacing */
+}
+/* Adjust padding for medium screens and up */
+@media (min-width: 768px) {
+  nav.navbar .navbar-brand {
+    margin-right: 6%;
+  }
+}
+/* Adjust padding for large screens and up */
+@media (min-width: 992px) {
+  nav.navbar .navbar-brand {
+    margin-right: 1%;
+  }
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
