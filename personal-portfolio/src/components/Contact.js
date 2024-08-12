@@ -25,21 +25,39 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");  // Replace with your actual access key
+    const object = Object.fromEntries(formData);
+
     setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
-    setButtonText("Send");
-    let result = await response.json();
-    setFormDetails(formInitialDetails);
-    if (result.code === 200) {
-      setStatus({ succes: true, message: 'Message sent successfully'});
-    } else {
-      setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json" 
+        },
+        body: JSON.stringify(object)
+      });
+
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus({ success: true, message: 'Message sent successfully' });
+      } else {
+        setStatus({ success: false, message: 'There was an error submitting your form. Please try again later.' });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setStatus({ success: false, message: 'An error occurred. Please try again later.' });
+    } finally {
+      setButtonText("Send");
+      setFormDetails(formInitialDetails);
     }
   };
 
