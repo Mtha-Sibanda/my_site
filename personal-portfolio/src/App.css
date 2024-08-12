@@ -481,6 +481,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 15px;
   letter-spacing: 0.8px;
 }
+.proj-imgbx {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth hover */
+}
+
+.proj-imgbx-hover {
+  transform: scale(1.1); /* Enlarge the card on hover */
+}
+
 .background-image-right {
   top: 20%;
   position: absolute;
